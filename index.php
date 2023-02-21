@@ -47,121 +47,44 @@ include 'global/conexion.php';
 
 
         <div class="row">
-            <div class="col-3">
-                <div class="card">
+            <?php
 
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
+            $sentencia = $pdo->prepare("SELECT * FROM `ejemplares`");
+            $sentencia->execute();
+            $listaProductos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+     
+            ?>
 
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
+            <?php foreach($listaProductos as $producto){ ?>
+                <div class="col-3">
+                    <div class="card">
+
+                        <img title="<?php echo $producto['raza']; ?>" alt="<?php echo $producto['raza']; ?>" src="<?php echo $producto['imagen']; ?>" class="card-img-top">
+
+                        <div class="card-body">
+
+                            <span> <?php echo $producto['raza']; ?> </span>
+                            <h5 class="card-title"> <?php echo $producto['precio']; ?> €</h5>
+                            <strong>Info</strong>
+                            <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consequatur sunt illum. Iusto amet incidunt perferendis qui sunt voluptate maxime optio aspernatur distinctio, officia ipsam aperiam nesciunt praesentium fugiat dolorem.</p>
+
+                            <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
 
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
+            <?php } ?>
 
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
 
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
 
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
 
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
 
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
 
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
-
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
-
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
-
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card">
-
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
-
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card">
-
-                    <img title="Titulo producto" class="card-img-top" src="./src/a1.png">
-                    <div class="card-body">
-                        <span>Titulo del producto</span>
-                        <h5 class="card-title">5€</h5>
-                        <p class="card-text">Descripcion</p>
-
-                        <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
 
-
-
-    </div>
-
-
-    <!-- import BOOTSTRAP 5 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <!-- import BOOTSTRAP 5 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
