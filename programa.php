@@ -49,24 +49,27 @@ include 'global/conexion.php';
         <div class="row">
             <?php
 
-            $sentencia = $pdo->prepare("SELECT * FROM `ejemplares`");
-            $sentencia->execute();
-            $listaProductos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-     
+            $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE 
+            ejemplares.especie = descripcion.tipo_animal;");
+            $queryEjemplares->execute();
+            $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+
+
             ?>
 
-            <?php foreach($listaProductos as $producto){ ?>
+            <?php foreach ($listaProductos as $producto) { ?>
+
                 <div class="col-3">
                     <div class="card">
 
-                        <img title="<?php echo $producto['raza']; ?>" alt="<?php echo $producto['raza']; ?>" src="<?php echo $producto['imagen']; ?>" class="card-img-top">
+                        <img data-toggle="popover" data-contet="<?php echo $info['info']; ?>" data-trigger="hover" title="<?php echo $producto['raza']; ?>" alt="<?php echo $producto['raza']; ?>" src="<?php echo $producto['imagen']; ?>" class="card-img-top">
 
                         <div class="card-body">
 
                             <span> <?php echo $producto['raza']; ?> </span>
                             <h5 class="card-title"> <?php echo $producto['precio']; ?> €</h5>
                             <strong>Info</strong>
-                            <p class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa consequatur sunt illum. Iusto amet incidunt perferendis qui sunt voluptate maxime optio aspernatur distinctio, officia ipsam aperiam nesciunt praesentium fugiat dolorem.</p>
+                            <p class="card-text"><?php echo $producto['info']; ?> </p>
 
                             <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
                         </div>
@@ -77,14 +80,20 @@ include 'global/conexion.php';
 
 
 
-
-
-
         </div>
 
 
         <!-- import BOOTSTRAP 5 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <!-- import script js de un tooltip o popover de bootstrap 4 -->
+        <script>
+            $(function() {
+                $('.example-popover').popover({
+                    container: 'body'
+                })
+            })
+        </script>
 </body>
 
 </html>
