@@ -19,16 +19,16 @@ try {
   INSERT INTO `dimarcodb`.`ejemplares` (`especie`, `raza`, `cantidad`, `precio`, `imagen`)
   
   VALUES
-  ('perro','collie','10','5','https://i.imgur.com/uyViejS.jpeg'),
-  ('perro','dogo argentino','15','10','https://i.imgur.com/JKuew3o.jpg'),
-  ('perro','golden doodle','20','15','https://i.imgur.com/6dSh10T.jpg'),
-  ('gato','angora','25','20','https://i.imgur.com/99zPO1H.jpg'),
-  ('gato','persa','30','25','https://i.imgur.com/7SYwZaS.jpg'),
-  ('gato','siames','35','30','https://i.imgur.com/hXn6DYb.jpg'),
-  ('ave','colibri','40','35','https://i.imgur.com/GrpkZAS.jpg'),
-  ('ave','cotorra argentina','45','40','https://i.imgur.com/NSljPcH.jpg'),
-  ('ave','jilguero europeo','50','45','https://i.imgur.com/rmZYOtw.jpg');";
-  
+  ('perro','Collie','10','5','https://i.imgur.com/uyViejS.jpeg'),
+  ('perro','Dogo Argentino','15','10','https://i.imgur.com/JKuew3o.jpg'),
+  ('perro','Golden Doodle','20','15','https://i.imgur.com/6dSh10T.jpg'),
+  ('gato','Angora','25','20','https://i.imgur.com/99zPO1H.jpg'),
+  ('gato','Persa','30','25','https://i.imgur.com/7SYwZaS.jpg'),
+  ('gato','Siames','35','30','https://i.imgur.com/hXn6DYb.jpg'),
+  ('ave','Colibri','40','35','https://i.imgur.com/GrpkZAS.jpg'),
+  ('ave','Cotorra Argentina','45','40','https://i.imgur.com/NSljPcH.jpg'),
+  ('ave','Jilguero Europeo','50','45','https://i.imgur.com/rmZYOtw.jpg');";
+
   //use exec() because no results are returned
   $conn->query($sql);
   echo "La tabla 'Ejemplares' se ha rellenado correctamente<br>";

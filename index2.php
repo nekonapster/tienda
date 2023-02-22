@@ -60,7 +60,7 @@
     <label>Ejecutar el programa</label>
     </br>
     </br>
-    <a href='programa.php' class="btnPrograma">Ir a Programa</a>
+    <a href='./login-php/index.php' class="btnPrograma">Ir a Programa</a>
 
 
 </body>

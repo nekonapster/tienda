@@ -42,7 +42,7 @@ include 'global/conexion.php';
         </br>
         <div class="alert alert-success" role="alert">
             Pantalla de mensaje...
-            <a href="" class="badge badge-success">Ver carrito</a>
+                <a href="#" class="badge badge-dark text-secondary">Ver carrito</a>
         </div>
 
 
@@ -74,8 +74,9 @@ include 'global/conexion.php';
                             <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
                         </div>
                     </div>
+                    <!-- el br inferior provoca un espacio entre la fila superior y la inferior -->
+                    </br>
                 </div>
-
             <?php } ?>
 
 
