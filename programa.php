@@ -20,15 +20,16 @@ include 'global/conexion.php';
 <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="index.php">Logo de la tienda</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="index.php" style="margin-left: 8%;">Logo de la tienda</a>
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="my-nav" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <!-- modifica el link siguiente para usar 'home' para redirigir a donde quier -->
+                    <a class="nav-link" href="programa.php">Home</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Carrito(0)</a>
@@ -36,8 +37,10 @@ include 'global/conexion.php';
             </ul>
         </div>
     </nav>
+
     </br>
     </br>
+    
     <div class="container">
         </br>
         <div class="alert alert-success" role="alert">
