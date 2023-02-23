@@ -2,6 +2,7 @@
 // incluimos ambos archivos para la conexion
 include 'global/config.php';
 include 'global/conexion.php';
+include 'carrito.php';
 
 ?>
 
@@ -12,6 +13,8 @@ include 'global/conexion.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- import google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- import css de bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Carrito</title>
@@ -21,7 +24,10 @@ include 'global/conexion.php';
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="index.php" style="margin-left: 8%;">Logo de la tienda</a>
+        <!-- agrego un style como atributo para separar el logo de la tienda del borde de la pagina -->
+        <a class="navbar-brand" href="index.php" style="margin-left: 8%;"><span class="material-symbols-outlined">
+                sound_detection_dog_barking
+            </span>- GuauMiauPiuPiu</a>
         <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,25 +46,58 @@ include 'global/conexion.php';
 
     </br>
     </br>
-    
+
     <div class="container">
         </br>
         <div class="alert alert-success" role="alert">
-            Pantalla de mensaje...
-                <a href="#" class="badge badge-dark text-secondary">Ver carrito</a>
+
+            <?php echo $mensaje ?>
+
+            <a href="#" class="badge badge-dark text-secondary">Ver carrito</a>
         </div>
 
 
         <div class="row">
             <?php
 
-            $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE 
-            ejemplares.especie = descripcion.tipo_animal;");
-            $queryEjemplares->execute();
-            $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+            if (isset($_POST['perro'])) {
 
+                $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE  
+            ejemplares.especie = descripcion.tipo_animal AND ejemplares.especie = 'perro' ;");
+                $queryEjemplares->execute();
+                $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+            } elseif (isset($_POST['gato'])) {
 
+                $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE  
+            ejemplares.especie = descripcion.tipo_animal AND ejemplares.especie = 'gato' ;");
+                $queryEjemplares->execute();
+                $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+            } elseif (isset($_POST['ave'])) {
+
+                $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE  
+            ejemplares.especie = descripcion.tipo_animal AND ejemplares.especie = 'ave' ;");
+                $queryEjemplares->execute();
+                $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+            } else {
+                $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE  
+                ejemplares.especie = descripcion.tipo_animal;");
+                $queryEjemplares->execute();
+                $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
+            }
             ?>
+
+
+
+            <div class="col-10">
+                <form action="programa.php" method="POST">
+                    <input class="btn btn-" name="todos" type="submit" value="Todos">
+                    <input class="btn btn-" name="perro" type="submit" value="Perros">
+                    <input class="btn btn-" name="gato" type="submit" value="Gatos">
+                    <input class="btn btn-" name="ave" type="submit" value="Aves">
+                </form>
+            </div>
+
+
 
             <?php foreach ($listaProductos as $producto) { ?>
 
@@ -74,7 +113,16 @@ include 'global/conexion.php';
                             <strong>Info</strong>
                             <p class="card-text"><?php echo $producto['info']; ?> </p>
 
-                            <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
+                            <form action="" method="POST">
+                                <input type="text" name="id" id="id" value="<?php echo openssl_encrypt($producto['id'], COD, KEY); ?>">
+                                <input type="text" name="raza" id="raza" value="<?php echo openssl_encrypt($producto['raza'], COD, KEY); ?>">
+                                <input type="text" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['precio'], COD, KEY); ?>">
+                                <input type="text" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt($producto['cantidad'], COD, KEY); ?>">
+                                <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
+
+                            </form>
+
+
                         </div>
                     </div>
                     <!-- el br inferior provoca un espacio entre la fila superior y la inferior -->
