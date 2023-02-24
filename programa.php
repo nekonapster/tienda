@@ -7,13 +7,17 @@ include 'templates/cabecera.php';
 
 ?>
 </br>
-<div class="alert alert-success" role="alert">
 
-    <?php echo $mensaje ?>
+<?php if ($mensaje != "") { ?>
 
-    <a href="#" class="badge badge-dark text-secondary">Ver carrito</a>
-</div>
+    <div class="alert alert-success" role="alert">
 
+        <?php echo $mensaje ?>
+
+        <a href="mostrarCarrito.php" class="badge badge-dark text-secondary">Ver carrito</a>
+    </div>
+
+<?php } ?>
 
 <div class="row">
     <?php

@@ -7,10 +7,10 @@ try {
     array(PDO::MYSQL_ATTR_INIT_COMMAND =>"SET NAMES utf8")
 );
     // pequeño script para lanzar un alert 
-    echo "<script>alert('Conectando...')</script>";
+    //echo "<script>alert('Conectando...')</script>";
     
 } catch (PDOException $e) {
     // pequeño script para lanzar un alert 
-    echo "<script>alert('Error...')</script>";
+    //echo "<script>alert('Error...')</script>";
     
 }
