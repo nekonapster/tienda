@@ -29,9 +29,21 @@ include 'templates/cabecera.php';
         $sentencia->bindParam(":Email", $Email);
         $sentencia->bindParam(":Total", $Total);
         $sentencia->execute();
-
         // recolecto el ultimo id de las ventas
         $idVentas=$pdo->lastInsertId();
+        
+        foreach ($_SESSION['CARRITO'] as $indice => $producto) {
+            $sentencia=$pdo->prepare("INSERT INTO 
+            `detalleventa` (`id`, `idVentas`, `idProducto`, `PrecioUnitario`, `Cantidad`, `Descargado`) 
+            VALUES (NULL,:idVentas, :idProducto, :PrecioUnitario, :Cantidad, '0');");
+      
+            $sentencia->bindParam(":idVentas",$idVentas);
+            $sentencia->bindParam(":idProducto",$producto['ID']);
+            $sentencia->bindParam(":PrecioUnitario", $producto['PRECIO']);
+            $sentencia->bindParam(":Cantidad", $producto['CANTIDAD']);
+            $sentencia->execute();
+
+        }
 
 echo "<h3>".$Total ."€" ."</h3>";
 
