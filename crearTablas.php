@@ -7,7 +7,7 @@ try {
   $conn3 = new PDO("mysql:host=$servername", $username, $password);
   // set the PDO error mode to exception
   $conn3->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $sql3 = "CREATE TABLE `dimarcodb`.`descripcion` (`tipo_animal` VARCHAR(40) NOT NULL , `info` VARCHAR(500) NOT NULL, PRIMARY KEY (`tipo_animal`)) ENGINE = InnoDB;";
+  $sql3 = "CREATE TABLE `dimarcodb`.`descripcion` (`tipo_animal` VARCHAR(40) NOT NULL , `info` VARCHAR(700) NOT NULL, PRIMARY KEY (`tipo_animal`)) ENGINE = InnoDB;";
 
   // use exec() because no results are returned
   $conn3->exec($sql3);
