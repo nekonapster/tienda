@@ -2,8 +2,9 @@
 session_start();
 
 // incluimos ambos archivos para la conexion
-include 'global/config.php';
-include 'global/conexion.php';
+include './login-php/db.php';
+// include 'global/config.php';
+// include 'global/conexion.php';
 include 'carrito.php';
 include 'templates/cabecera.php';
 
@@ -32,7 +33,7 @@ if(!isset($_SESSION['user_id'])){
 
     <p class="pb-3">
         Podras descargar su comprobante del donativo una vez se procese el pago.
-        <br>
+        </br>
         <small>
             (Para cualquier duda contacte con: <strong>nekonapster@neko.com</strong>)
         </small>

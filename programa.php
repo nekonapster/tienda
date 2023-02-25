@@ -3,8 +3,9 @@
 
 
 // incluimos ambos archivos para la conexion
-include 'global/config.php';
-include 'global/conexion.php';
+include './login-php/db.php';
+// include 'global/config.php';
+// include 'global/conexion.php';
 include 'carrito.php';
 include 'templates/cabecera.php';
 
@@ -47,6 +48,7 @@ if (isset($_SESSION['COMPRAHECHA'])) {
         $queryEjemplares->execute();
         $listaProductos = $queryEjemplares->fetchAll(PDO::FETCH_ASSOC);
     } elseif (isset($_POST['ave'])) {
+
         $queryEjemplares = $pdo->prepare("SELECT * FROM ejemplares, descripcion WHERE  
             ejemplares.especie = descripcion.tipo_animal AND ejemplares.especie = 'ave' ;");
         $queryEjemplares->execute();
@@ -89,7 +91,7 @@ if (isset($_SESSION['COMPRAHECHA'])) {
                     <div class="card-body">
 
                         <span> <?php echo $producto['raza']; ?> </span>
-                        <br>
+                        </br>
                         
                         <h5 class="card-title"> <?php echo $producto['precio']; ?> €</h5>
                         <strong>Info</strong>
@@ -101,8 +103,8 @@ if (isset($_SESSION['COMPRAHECHA'])) {
                             <input type="hidden" name="precio" id="precio" value="<?php echo openssl_encrypt($producto['precio'], COD, KEY); ?>">
                             <input type="hidden" name="cantidad" id="cantidad" value="<?php echo openssl_encrypt($producto['cantidad'], COD, KEY); ?>">
                             <button class="btn btn-primary" name="btnAccion" value="Agregar" type="submit">Agregar al carrito</button>
-                            <br>
-                            <br>
+                            </br>
+                            </br>
                             <small ><strong>No es posible adoptar el mismo animal mas de una vez por usuario</strong></small>
                             
                         </form>

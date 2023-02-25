@@ -1,6 +1,7 @@
 <?php
 
-include 'global/config.php';
+include './login-php/db.php';
+// include 'global/config.php';
 include 'carrito.php';
 include 'templates/cabecera.php';
 
@@ -10,7 +11,7 @@ if(!isset($_SESSION['user_id'])){
 
 ?>
 
-<br>
+</br>
 <h3>Lista del carrito</h3>
 <?php
 //Checkea si el boton vaciar fue pulsado y recarga la pagina vaciando la sesion
@@ -21,7 +22,7 @@ header('Location: #');
 }
 if (!empty($_SESSION['CARRITO'])) { ?>
     <form method="post">
-    <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Vaciar Cesta" name="btnVacia"></button><br><br>
+    <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Vaciar Cesta" name="btnVacia"></button></br></br>
     </form>
 
     <table class="table table-light table-bordered">

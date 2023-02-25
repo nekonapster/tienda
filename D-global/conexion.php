@@ -11,6 +11,5 @@ try {
     
 } catch (PDOException $e) {
     // pequeño script para lanzar un alert 
-    //echo "<script>alert('Error...')</script>";
-    
+    //echo "<script>alert('Error...')</script>";   
 }
