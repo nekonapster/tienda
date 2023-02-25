@@ -50,7 +50,6 @@ if (isset($_POST['btnAccion'])) {
                     'ID' => $ID,
                     'RAZA' => $RAZA,
                     'PRECIO' => $PRECIO,
-                    'CANTIDAD' => $CANTIDAD,
                 ];
                 $_SESSION['CARRITO'][0] = $producto;
                 $mensaje = "Producto agregado correctamente al carrito";
@@ -64,7 +63,6 @@ if (isset($_POST['btnAccion'])) {
                 // con este condicional pregunto si en el array los ID de los productos ya estan almacenados en mi variable idProductos y muestro un mensaje por medio de un alert
                 if (in_array($ID, $idProductos)) {
                     echo "<script>alert('El producto ya fue seleccionado, elija otro o finalice su compra.')</script>";
-                    $mensaje = "";
 
                 } else {
 
@@ -76,7 +74,6 @@ if (isset($_POST['btnAccion'])) {
                         'ID' => $ID,
                         'RAZA' => $RAZA,
                         'PRECIO' => $PRECIO,
-                        'CANTIDAD' => $CANTIDAD,
                     ];
                     // en este caso si producto se inicializa en 1 con mumreroProductos iremos sumando cada producto.
                     $_SESSION['CARRITO'][$numeroProductos] = $producto;
@@ -105,4 +102,6 @@ if (isset($_POST['btnAccion'])) {
             }
             break;
     }
+
+   
 }

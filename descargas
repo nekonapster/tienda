@@ -1,0 +1,33 @@
+<?php
+// incluimos ambos archivos para la conexion
+include 'global/config.php';
+include 'global/conexion.php';
+include 'carrito.php';
+include 'templates/cabecera.php';
+
+?>
+
+
+
+
+
+
+<?php
+print_r($_POST)
+?>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+
+include 'templates/pie.php';
+
+?>

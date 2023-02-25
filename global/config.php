@@ -6,6 +6,6 @@ define('COD', 'AES-128-ECB');
 
 //datos de la conexion
 define('SERVIDOR', 'localhost');
-define('USUARIO', 'profesor');
+define('USUARIO', 'root');
 define('PASSWORD', '');
 define('BD', 'dimarcodb');
