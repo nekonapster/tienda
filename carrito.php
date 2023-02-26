@@ -62,7 +62,7 @@ if (isset($_POST['btnAccion'])) {
                 
                 // con este condicional pregunto si en el array los ID de los productos ya estan almacenados en mi variable idProductos y muestro un mensaje por medio de un alert
                 if (in_array($ID, $idProductos)) {
-                    echo "<script>alert('El producto ya fue seleccionado, elija otro o finalice su compra.')</script>";
+                    echo "<script>alert('El animal ya fue adoptado, elija otro o finalice su adopción.')</script>";
 
                 } else {
 
@@ -94,7 +94,7 @@ if (isset($_POST['btnAccion'])) {
                 foreach ($_SESSION['CARRITO'] as $indice => $producto) {
                     if ($producto['ID'] == $ID) {
                         unset($_SESSION['CARRITO'][$indice]);
-                        echo "<script>alert('Producto eliminado con exito');</script>";
+                        echo "<script>alert('El animal fue quitado de la adopción con exito');</script>";
                     }
                 }
             } else {

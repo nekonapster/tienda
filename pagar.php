@@ -6,27 +6,27 @@ include './login-php/db.php';
 // include 'global/config.php';
 // include 'global/conexion.php';
 include 'carrito.php';
-include 'templates/cabecera.php';
+include 'cabecera.php';
 
 
-if(!isset($_SESSION['user_id'])){
+if (!isset($_SESSION['user_id'])) {
     header("Location: login-php/logout.php");
-    }
+}
 ?>
 
 </br>
 <div class="jumbotron jumbotron-fluid text-center" style="background-color: rgb(220, 240, 240);">
     <h1 class="display-3">¡Ya casi terminamos!</h1>
     <hr class="my-4">
-</p>
+    </p>
 
 
 
-<a type="button" class="btn btn-lg btn-warning" href="comprar.php">Confirmar el donativo</a>
+    <a type="button" class="btn btn-lg btn-warning" href="comprar.php">Confirmar el donativo</a>
 
 
- <!-- Set up a container element for the button -->
- <div id="paypal-button-container"></div>
+    <!-- Set up a container element for the button -->
+    <div id="paypal-button-container"></div>
     </br>
     </br>
     </br>
@@ -41,4 +41,6 @@ if(!isset($_SESSION['user_id'])){
 </div>
 
 
-<?php include 'templates/pie.php'; ?>
+<?php
+include './pie.php';
+?>

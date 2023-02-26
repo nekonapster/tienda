@@ -2,8 +2,8 @@
 
 include './login-php/db.php';
 // include 'global/config.php';
-include 'carrito.php';
-include 'templates/cabecera.php';
+include './carrito.php';
+include './cabecera.php';
 
 if(!isset($_SESSION['user_id'])){
     header("Location: login-php/logout.php");
@@ -12,7 +12,7 @@ if(!isset($_SESSION['user_id'])){
 ?>
 
 </br>
-<h3>Lista del carrito</h3>
+<h3>Lista de adopción</h3>
 <?php
 //Checkea si el boton vaciar fue pulsado y recarga la pagina vaciando la sesion
 //funcionaria sin recargar, pero recarga para que se actualice el numero del carrito
@@ -75,12 +75,12 @@ if (!empty($_SESSION['CARRITO'])) { ?>
 
 <?php } else { ?>
     <div class="alert alert-success" role="alert">
-        Carrito sin productos...
+        Lista sin adopciones...
     </div>
 <?php } ?>
 
 
 
 <?php
-include 'templates/pie.php';
+include './pie.php';
 ?>

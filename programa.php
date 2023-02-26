@@ -7,7 +7,7 @@ include './login-php/db.php';
 // include 'global/config.php';
 // include 'global/conexion.php';
 include 'carrito.php';
-include 'templates/cabecera.php';
+include './cabecera.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login-php/logout.php");
@@ -136,6 +136,6 @@ if (isset($_SESSION['COMPRAHECHA'])) {
 </script>
 <?php
 
-include 'templates/pie.php';
+include './pie.php';
 
 ?>
